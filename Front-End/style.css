@@ -1,0 +1,206 @@
+:root {
+  --bg: #0b0f14;
+  --panel: rgba(17, 24, 38, 0.78);
+  --panel2: rgba(15, 22, 35, 0.78);
+
+  --text: #e6eefc;
+  --muted: #9fb0cc;
+
+  --user: #2a7cff;
+  --bot: #151f2d;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border2: rgba(255, 255, 255, 0.12);
+
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.38);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(1200px 700px at 10% 10%, rgba(42,124,255,0.20), transparent 60%),
+    radial-gradient(900px 600px at 90% 30%, rgba(56,211,159,0.12), transparent 55%),
+    radial-gradient(900px 700px at 50% 110%, rgba(255,255,255,0.06), transparent 55%),
+    var(--bg);
+}
+
+.app {
+  width: min(980px, 96vw);
+  height: min(760px, 92vh);
+
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.topbar {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #38d39f;
+  box-shadow: 0 0 0 6px rgba(56, 211, 159, 0.12);
+}
+
+.name { font-weight: 750; letter-spacing: 0.2px; }
+.status { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.chat {
+  padding: 18px 16px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,255,255,0.04), transparent 35%),
+    radial-gradient(circle at 80% 100%, rgba(255,255,255,0.03), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 22%);
+}
+
+.chat::-webkit-scrollbar { width: 10px; }
+.chat::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,0);
+  background-clip: padding-box;
+}
+.chat::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+.msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 86%;
+  animation: pop 140ms ease-out;
+}
+
+@keyframes pop {
+  from { transform: translateY(6px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.msg.user {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.msg.bot {
+  margin-right: auto;
+  justify-content: flex-start;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  border: 1px solid var(--border2);
+  user-select: none;
+}
+
+.avatar.bot {
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+.avatar.user {
+  background: rgba(42,124,255,0.20);
+  border-color: rgba(42,124,255,0.35);
+  color: var(--text);
+}
+
+.bubble {
+  padding: 12px 14px;
+  border-radius: 16px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+
+  border: 1px solid var(--border);
+  background: rgba(21, 31, 45, 0.78);
+}
+
+.msg.bot .bubble {
+  border-top-left-radius: 10px;
+}
+
+.msg.user .bubble {
+  background: rgba(42, 124, 255, 0.18);
+  border-color: rgba(42, 124, 255, 0.35);
+  border-top-right-radius: 10px;
+}
+
+.composer {
+  border-top: 1px solid var(--border);
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus {
+  border-color: rgba(42, 124, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(42,124,255,0.12);
+}
+
+button {
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(42, 124, 255, 0.50);
+  background: rgba(42, 124, 255, 0.22);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+button:hover { transform: translateY(-1px); background: rgba(42,124,255,0.28); }
+button:active { transform: translateY(0px); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (max-width: 520px) {
+  .app { height: 96vh; border-radius: 14px; }
+  .msg { max-width: 92%; }
+  .avatar { width: 30px; height: 30px; font-size: 11px; }
+}

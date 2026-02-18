@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot IA</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="title">
+          <div class="dot"></div>
+          <div>
+            <div class="name">Chatbot IA</div>
+            <div class="status" id="botStatus">online</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="chat" id="chat"></main>
+
+      <footer class="composer">
+        <form id="form" autocomplete="off">
+          <input
+            id="input"
+            type="text"
+            placeholder="Digite sua mensagem..."
+            aria-label="Mensagem"
+          />
+          <button type="submit">Enviar</button>
+        </form>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
