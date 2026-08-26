@@ -1,21 +1,27 @@
 {
   "name": "beck-end",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Backend do Chat-BotJS: API de chat com IA, autenticação de usuários e histórico de conversas.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "node-fetch": "^3.3.2"
+    "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.8.0",
+    "multer": "^2.2.0",
+    "pdf-parse": "^1.1.1"
   }
 }

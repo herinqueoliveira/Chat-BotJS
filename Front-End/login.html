@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatbotJS</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body class="auth-body">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="dot"></div>
+        <div class="name">Chatbot IA</div>
+      </div>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="login">Entrar</button>
+        <button type="button" class="auth-tab" data-tab="register">Criar conta</button>
+      </div>
+
+      <p class="auth-error" id="authError" hidden></p>
+
+      <form id="loginForm" class="auth-form" autocomplete="off">
+        <label>
+          E-mail
+          <input type="email" id="loginEmail" required autocomplete="email" />
+        </label>
+        <label>
+          Senha
+          <input type="password" id="loginPassword" required autocomplete="current-password" />
+        </label>
+        <button type="submit" id="loginSubmit">Entrar</button>
+      </form>
+
+      <form id="registerForm" class="auth-form" autocomplete="off" hidden>
+        <label>
+          Nome
+          <input type="text" id="registerName" required autocomplete="name" />
+        </label>
+        <label>
+          E-mail
+          <input type="email" id="registerEmail" required autocomplete="email" />
+        </label>
+        <label>
+          Confirmar e-mail
+          <input type="email" id="registerEmailConfirmation" required autocomplete="email" />
+        </label>
+        <label>
+          Telefone
+          <input type="tel" id="registerPhone" required autocomplete="tel" placeholder="(11) 91234-5678" />
+        </label>
+        <label>
+          Senha
+          <input type="password" id="registerPassword" required autocomplete="new-password" minlength="6" />
+        </label>
+        <label>
+          Confirmar senha
+          <input type="password" id="registerPasswordConfirmation" required autocomplete="new-password" minlength="6" />
+        </label>
+        <button type="submit" id="registerSubmit">Criar conta</button>
+      </form>
+    </div>
+
+    <script type="module" src="./js/auth.js"></script>
+  </body>
+</html>

@@ -3,37 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chatbot IA</title>
+    <title>ChatbotJS</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <div class="app">
-      <header class="topbar">
-        <div class="title">
-          <div class="dot"></div>
-          <div>
-            <div class="name">Chatbot IA</div>
-            <div class="status" id="botStatus">online</div>
-          </div>
+    <div class="app app--with-sidebar">
+      <aside class="sidebar" id="sidebar">
+        <button type="button" id="newConversationButton" class="sidebar-new-btn">
+          + Nova conversa
+        </button>
+
+        <nav class="sidebar-list" id="conversationList" aria-label="Histórico de conversas"></nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-user" id="sidebarUserName"></div>
+          <button type="button" id="logoutButton" class="sidebar-logout-btn">Sair</button>
         </div>
-      </header>
+      </aside>
 
-      <main class="chat" id="chat"></main>
+      <div class="main">
+        <header class="topbar">
+          <button type="button" id="toggleSidebarButton" class="sidebar-toggle" title="Mostrar/ocultar histórico">
+            ☰
+          </button>
+          <div class="title">
+            <div class="dot"></div>
+            <div>
+              <div class="name" id="conversationTitle">Chatbot IA</div>
+              <div class="status" id="botStatus">online</div>
+            </div>
+          </div>
+        </header>
 
-      <footer class="composer">
-        <form id="form" autocomplete="off">
-          <input
-            id="input"
-            type="text"
-            placeholder="Digite sua mensagem..."
-            aria-label="Mensagem"
-          />
-          <button type="submit">Enviar</button>
-        </form>
-      </footer>
+        <main class="chat" id="chat"></main>
+
+        <footer class="composer">
+          <div id="attachedFile" class="attached-file" style="display: none">
+            <div class="attached-file-icon" id="attachedFileIcon">📄</div>
+            <div class="attached-file-info">
+              <span id="attachedFileName" class="attached-file-name"></span>
+              <span class="attached-file-type">Arquivo</span>
+            </div>
+            <button type="button" id="removeFileButton" class="attached-file-remove" title="Remover arquivo">✕</button>
+          </div>
+
+          <form id="form" autocomplete="off">
+            <input type="file" id="fileInput" hidden />
+
+            <button type="button" id="uploadButton" title="Anexar arquivo">📎</button>
+
+            <input id="input" type="text" placeholder="Digite sua mensagem..." aria-label="Mensagem" />
+
+            <button type="submit">Enviar</button>
+          </form>
+        </footer>
+      </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>
