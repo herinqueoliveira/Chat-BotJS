@@ -83,10 +83,3 @@ tabelas são criados automaticamente.
 - Pela sidebar dá pra criar uma nova conversa, abrir uma antiga, renomear
   (✏️) e excluir (🗑️). O título é definido automaticamente a partir da
   primeira mensagem, mas pode ser renomeado a qualquer momento.
-
-## Observações de segurança
-
-- A chave da API do Gemini **não fica mais no código-fonte** (estava
-  hardcoded na versão anterior do projeto) — agora vem só do `.env`.
-- Se for colocar em produção: rode atrás de HTTPS e defina `NODE_ENV=production`
-  (isso ativa a flag `Secure` no cookie de sessão).
