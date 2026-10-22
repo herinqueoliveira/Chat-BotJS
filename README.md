@@ -7,7 +7,7 @@ conversas por usuário (estilo ChatGPT) e suporte a anexar arquivos.
 
 ```
 Chat-BotJS/
-├── Beck-End/                 # API (Node + Express)
+├── Back-End/                 # API (Node + Express)
 │   ├── server.js              # ponto de entrada: monta tudo e sobe o servidor
 │   ├── src/
 │   │   ├── config/            # env, conexão com o banco (SQLite), caminhos
@@ -35,7 +35,7 @@ Chat-BotJS/
 ### 1. Configurar o back-end
 
 ```bash
-cd Beck-End
+cd Back-End
 npm install
 cp .env.example .env
 ```
@@ -62,7 +62,7 @@ domínios diferentes.
 Se preferir continuar abrindo o Front-End por outra origem (ex: Live Server
 do VS Code), ajuste `CORS_ORIGIN` no `.env` com a URL usada.
 
-Na primeira execução o banco SQLite (`Beck-End/data/chatbot.sqlite`) e as
+Na primeira execução o banco SQLite (`Back-End/data/chatbot.sqlite`) e as
 tabelas são criados automaticamente.
 
 ## Autenticação
@@ -83,3 +83,9 @@ tabelas são criados automaticamente.
 - Pela sidebar dá pra criar uma nova conversa, abrir uma antiga, renomear
   (✏️) e excluir (🗑️). O título é definido automaticamente a partir da
   primeira mensagem, mas pode ser renomeado a qualquer momento.
+
+## Desenvolvimento
+
+Pull requests devem incluir um resumo da mudança e as verificações realizadas.
+O GitHub Actions instala as dependências do back-end e verifica a sintaxe dos
+arquivos JavaScript a cada push e pull request.

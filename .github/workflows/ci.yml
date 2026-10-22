@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Back-End/package-lock.json
+
+      - name: Install back-end dependencies
+        working-directory: Back-End
+        run: npm ci
+
+      - name: Check JavaScript syntax
+        run: git ls-files -z -- '*.js' | xargs -0 -r -n1 node --check
